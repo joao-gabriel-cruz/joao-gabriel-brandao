@@ -1,6 +1,7 @@
 import { animated, useSpring } from "@react-spring/web"
 import { Projects } from "../../@types/project"
 import { projects } from "../../projects.ts"
+import { IoClose } from "react-icons/io5"
 
 interface ModalProjectProps {
   project_name: Projects
@@ -23,11 +24,19 @@ export const ModalProject = (props: ModalProjectProps) => {
   return (
     <animated.div
       style={springs}
-      className="w-full h-screen justify-center items-center absolute bg-black bg-opacity-50 "
+      className="w-full h-screen justify-center items-center absolute bg-black bg-opacity-50 z-50"
     >
       <div
         className="w-[95%] h-[90%] bg-white flex justify-center items-center rounded-md"
       >
+        <button
+          onClick={props.onClose}
+          className="absolute top-2 right-2 bg-white rounded-full hover:bg-gray-200 hover:shadow-lg hover:scale-105 duration-300"
+        >
+          <IoClose
+            className="text-4xl text-red-500"
+          />
+        </button>
         {
           demostration ? <iframe
             src={url}
