@@ -38,10 +38,21 @@ export const ModalProject = (props: ModalProjectProps) => {
           />
         </button>
         {
-          demostration ? <iframe
-            src={url}
-            className="w-[85%] h-full rounded-l-md"
-          /> :
+          demostration ? (
+            <div
+              className="w-2/3 h-full flex justify-center items-center relative"
+            >
+              <img
+                className="absolute w-[45%] h-[95%] top-5 rounded-l-md"
+                src={"phone.png"}
+              />
+              <iframe
+                seamless
+                src={url}
+                className="w-[41%] z-20 h-[75%] "
+              />
+            </div>
+          ) :
             <section
               className={`w-2/3 h-full flex-col justify-center items-center  `}
               style={{ backgroundImage: `url(${image})` }}
